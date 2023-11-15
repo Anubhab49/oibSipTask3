@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        h1{
+            font-size: 75px;
+            font-family: cursive;
+            text-align: center;
+            justify-content: center;
+            padding: 5px;
+            border: rgba(110, 24, 24, 0.521) solid 10px;
+            background: linear-gradient(
+                135deg, #ff00d2, #fed90f, #00a2ff, #09f1b8, #ff00d2, #fed90f, #00a2ff, #09f1b8
+            );
+            color: darkgreen;
+        }
+        .container{
+            margin-left: 600px;
+            margin-top: 100px;
+            width: 250px;
+            height: 100px;
+            text-align: center;
+            background-color: slateblue;
+            padding: 10px;
+            color: #00a2ff;
+            border: 10px darkblue solid;
+        }
+        .convert{
+            margin-top: 10px;
+            text-align: center;
+        }
+        input{
+            margin-right: 50%;
+        }
+        .box{
+            margin-left: 175px;
+            color: cornsilk;
+            font-size: 25px;
+            background-color: darkslategray;
+            margin-top: -25px;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature Converter</h1>
+    <div class="container">
+        <div class="convert">
+            <input type="number" id="celsius"><div class="box">°C</div>
+        </div>
+        <div class="convert">
+            <input type="number" id="farhenheit"><div class="box">°F</div>
+        </div>
+    </div>
+    <script>
+        let cel=document.getElementById('celsius');
+        let far=document.getElementById('farhenheit');
+        cel.oninput=function(){
+            let f=(parseFloat(cel.value)*9/5)+32;
+            far.value=parseFloat(f.toFixed(2));
+        }
+        far.oninput=function(){
+            let c=(parseFloat(far.value)-32)*5/9;
+            cel.value=parseFloat(c.toFixed(2));
+        }
+    </script>
+</body>
+</html>
